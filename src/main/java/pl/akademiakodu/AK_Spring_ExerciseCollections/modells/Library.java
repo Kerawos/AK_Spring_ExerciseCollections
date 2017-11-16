@@ -67,6 +67,57 @@ public class Library {
         writers.add(enzo);
         return writers;
     }
+
+    public boolean isWriter(String userInput){
+        List<Writer> writers = createWriterList();
+        for (Writer writer : writers) {
+           if (writer.getName().equals(userInput)){
+               return true;
+           }
+        }
+        return false;
+    }
+
+    public boolean isArticle(String userInput){
+        List<Article> articles = createArticleList();
+        for (Article articl : articles) {
+            if (articl.getName().equals(userInput)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String showWriters(){
+        StringBuilder sb = new StringBuilder();
+        List<Writer> writers = createWriterList();
+        for (Writer writer : writers) {
+            sb.append("Writer: " + writer.getName() + ", Article: " + writer.getArticle().getName() + " *** ");
+        }
+        return sb.toString();
+    }
+
+    public String showArticles(){
+        StringBuilder sb = new StringBuilder();
+        List<Article> articles = createArticleList();
+        for (Article articl : articles) {
+            sb.append("Article: " + articl.getName() + ", Year: " + articl.getProductionYear() + " *** ");
+        }
+        return sb.toString();
+    }
+
+    public String generateResult(String userInput){
+        StringBuilder sb = new StringBuilder();
+        if (isArticle(userInput)){
+            getWriters(userInput).forEach(writer->sb.append("Writer: " + writer.getName() + ", Article: " + writer.getArticle().getName() + " *** "));
+            return sb.toString();
+        } else if (isWriter(userInput)){
+            System.out.println(getArticles(userInput).getName());
+            return "Article: " + getArticles(userInput).getName() + ", Year: " + getArticles(userInput).getProductionYear() + " *** ";
+        } else {
+            return "Your input is incorrect";
+        }
+    }
 }
 
 

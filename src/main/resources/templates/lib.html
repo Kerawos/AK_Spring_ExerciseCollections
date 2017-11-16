@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body bgcolor="#99CC66">
+lib
+    <!--<img src="img/simpleCalculatorNavigation.png" style="max-width:100%;" >-->
+    <!--<hr>-->
+    <p th:if="${writers}!=null" th:text="${writers}"></p><br>
+    <p th:if="${articles}!=null" th:text="${articles}"></p><br>
+    <hr>
+    <form method="post" th:action="@{/lib}" th:object="${singleUserInput}">
+        <input type="text" th:field="*{input}"><br>
+        <input type="submit" class="button" value="Check"><br>
+    </form>
+    <hr>
+    <p th:if="${result}!=null" th:text="${result}"></p><br>
+
+</body>
+</html>
