@@ -5,18 +5,21 @@
     <title>Library</title>
 </head>
 <body bgcolor="#99CC66">
-
-    <!--<img src="img/simpleCalculatorNavigation.png" style="max-width:100%;" >-->
-    <!--<hr>-->
-    <p th:if="${writers}!=null" th:text="${writers}"></p><br>
-    <p th:if="${articles}!=null" th:text="${articles}"></p><br>
+    <img src="img/CollectionsNav.png" style="max-width: 100%";>
     <hr>
-    <form method="post" th:action="@{/lib}" th:object="${userInput}">
-        <input type="text" th:field="*{input}"><br>
-        <input type="submit" class="button" value="Check"><br>
-    </form>
-    <hr>
-    <p th:if="${result}!=null" th:text="${result}"></p><br>
-
+    <font size="4" color="#6666CC" face="Arial">
+        <b>
+            <p th:if="${writers}!=null" th:text="${writers}"></p><br>
+            <p th:if="${articles}!=null" th:text="${articles}"></p><br>
+            <hr>
+            <form method="post" th:action="@{/lib}" th:object="${userInput}">
+                <input type="text" th:field="*{input}"><br>
+                <input type="submit" class="button" value="Check" style="background-color: darkorange"><br>
+            </form>
+            <hr>
+            <p th:if="${result}!=null" th:text="${result}"></p><br>
+        </b>
+    </font>
+    <br><br><hr><img src="img/CollectionsLibrary.png" style="max-width: 100%";>
 </body>
 </html>

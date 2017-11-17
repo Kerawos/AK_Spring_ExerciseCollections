@@ -5,20 +5,25 @@
     <title>Market</title>
 </head>
 <body bgcolor="#99CC66">
-    <!--<img src="img/simpleCalculatorNavigation.png" style="max-width:100%;" >-->
-    <!--<hr>-->
-    <p th:if="${availableList}!=null" th:text="${availableList}"></p><br>
+    <img src="img/CollectionsNav.png" style="max-width: 100%";>
     <hr>
-    <form method="post" th:action="@{/mar}" th:object="${userInput2}">
-        <input type="text" th:field="*{inputKey}"> <-Enter Item name you wanna add to your shop list<br>
-        <input type="text" th:field="*{inputValue}"> <- Enter quantity of this item <br>
-        <input type="submit" class="button" value="Add item to list"><br>
-    </form>
-    <hr>
-    <i>
-        Your current shop list
-        <p th:if="${shopList}!=null" th:text="${shopList}"></p><br>
-        Total cost = $ <p th:if="${totalCost}!=null" th:text="${totalCost}"> </p><br>
-    </i>
+    <font size="4" color="#6666CC" face="Arial">
+        <b>
+            <p th:if="${availableList}!=null" th:text="${availableList}"></p><br>
+            <hr>
+            <form method="post" th:action="@{/mar}" th:object="${userInput2}">
+                <input type="text" th:field="*{inputKey}"> <-Enter Item name you wanna add to your shop list<br>
+                <input type="text" th:field="*{inputValue}"> <- Enter quantity of this item <br>
+                <input type="submit" class="button" value="Add item to list" style="background-color: darkorange"><br>
+            </form>
+            <hr>
+            <i>
+                Your current shop list
+                <p th:if="${shopList}!=null" th:text="${shopList}"></p><br>
+                Total cost = $ <p th:if="${totalCost}!=null" th:text="${totalCost}"> </p><br>
+            </i>
+        </b>
+    </font>
+    <br><br><hr><img src="img/CollectionsMarket.png" style="max-width: 100%";>
 </body>
 </html>
