@@ -6,30 +6,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.akademiakodu.AK_Spring_ExerciseCollections.modells.Library;
-import pl.akademiakodu.AK_Spring_ExerciseCollections.modells.entities.SingleUserInput;
+import pl.akademiakodu.AK_Spring_ExerciseCollections.modells.entities.UserInput;
 
 @Controller
 public class LibraryController {
 
     private Library library = new Library();
 
-    @GetMapping("/")
-    public String descGet(){
-        return "desc";
-    }
-
     @GetMapping("/lib") public String getLib(Model model){
         model.addAttribute("writers", library.showWriters());
         model.addAttribute("articles", library.showArticles());
-        model.addAttribute("singleUserInput", new SingleUserInput());
+        model.addAttribute("userInput", new UserInput());
         return "lib";
     }
 
-    @PostMapping("/lib") public String postLibrary(@ModelAttribute SingleUserInput singleUserInput, Model model){
+    @PostMapping("/lib") public String postLibrary(@ModelAttribute UserInput userInput, Model model){
         model.addAttribute("writers", library.showWriters());
         model.addAttribute("articles", library.showArticles());
-        System.out.println(library.generateResult(singleUserInput.getInput()));
-        model.addAttribute("result", library.generateResult(singleUserInput.getInput()));
+        model.addAttribute("result", library.generateResult(userInput.getInput()));
        return "lib";
     }
 }

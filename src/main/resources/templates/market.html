@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Market</title>
+</head>
+<body bgcolor="#99CC66">
+
+<!--<img src="img/simpleCalculatorNavigation.png" style="max-width:100%;" >-->
+<!--<hr>-->
+<p th:if="${writers}!=null" th:text="${writers}"></p><br>
+<p th:if="${articles}!=null" th:text="${articles}"></p><br>
+<hr>
+<form method="post" th:action="@{/lib}" th:object="${userInputKey}">
+    <input type="text" th:field="*{input}"><br>
+</form>
+<form method="post" th:action="@{/lib}" th:object="${userInputValue}">
+    <input type="text" th:field="*{input}"><br>
+    <input type="submit" class="button" value="Add"><br>
+</form>
+<hr>
+<p th:if="${shopList}!=null" th:text="${shopList}"></p><br>
+
+</body>
+</html>

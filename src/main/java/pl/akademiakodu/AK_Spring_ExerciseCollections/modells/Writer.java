@@ -1,13 +1,15 @@
 package pl.akademiakodu.AK_Spring_ExerciseCollections.modells;
 
+import java.util.List;
+
 public class Writer {
 
     private String name;
-    private Article article;
+    private List<Article> articles;
 
-    public Writer(String name, Article article) {
+    public Writer(String name, List<Article> articles) {
         this.name = name;
-        this.article = article;
+        this.articles = articles;
     }
 
     public String getName() {
@@ -18,11 +20,11 @@ public class Writer {
         this.name = name;
     }
 
-    public Article getArticle() {
-        return article;
+    public List<Article> getArticles() {
+        return articles;
     }
 
-    public void setArticle(Article article) {
-        this.article = article;
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
     }
 }

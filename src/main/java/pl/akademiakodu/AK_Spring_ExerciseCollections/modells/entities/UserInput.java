@@ -1,6 +1,6 @@
 package pl.akademiakodu.AK_Spring_ExerciseCollections.modells.entities;
 
-public class SingleUserInput {
+public class UserInput {
     private String input;
 
     public String getInput() {

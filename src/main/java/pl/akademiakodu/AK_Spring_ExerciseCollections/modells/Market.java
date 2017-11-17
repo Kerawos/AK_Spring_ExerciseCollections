@@ -26,5 +26,20 @@ public class Market {
         }
     }
 
+    public String showShopList(){
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<Enum, Integer> element : shopList.entrySet()){
+            sb.append("Item: " + element.getKey() + " = " + element.getValue() + "pcs; *** ");
+        }
+        return sb.toString();
+    }
+
+    public int calculatePrice(){
+        int sum = 0;
+        for(Map.Entry<Enum, Integer> element : shopList.entrySet()){
+            sum+=element.getValue() * element.getKey().toString().length();
+        }
+        return sum;
+    }
 
 }

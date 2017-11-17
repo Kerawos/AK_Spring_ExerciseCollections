@@ -1,6 +1,7 @@
 package pl.akademiakodu.AK_Spring_ExerciseCollections.modells;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Library {
@@ -11,37 +12,41 @@ public class Library {
     Article ocean = new Article("Undersea", 3001);
     Article mount = new Article("Mount and Horses", 3002);
 
-    Writer johny = new Writer("Johny", pirates);
-    Writer sam = new Writer("Sam", ocean);
-    Writer elvis = new Writer("Elvis", pirates);
-    Writer ana = new Writer("Ana", mount);
-    Writer michaliv = new Writer("Michaliv", pirates);
-    Writer olecia = new Writer("Olecia", wanted);
-    Writer reksio = new Writer("Reksio", trees);
-    Writer kogijaszi = new Writer("Kogijaszi", pirates);
-    Writer enzo = new Writer("Enzo", mount);
+    Writer johny = new Writer("Johny", Arrays.asList(pirates, wanted));
+    Writer sam = new Writer("Sam",  Arrays.asList(ocean));
+    Writer elvis = new Writer("Elvis",  Arrays.asList(pirates));
+    Writer ana = new Writer("Ana",  Arrays.asList(mount));
+    Writer michaliv = new Writer("Michaliv",  Arrays.asList(pirates));
+    Writer olecia = new Writer("Olecia",  Arrays.asList(wanted));
+    Writer reksio = new Writer("Reksio",  Arrays.asList(trees, mount));
+    Writer kogijaszi = new Writer("Kogijaszi",  Arrays.asList(pirates, wanted, mount, trees));
+    Writer enzo = new Writer("Enzo",  Arrays.asList(mount));
 
     public List<Writer> getWriters(String articleName){
         List<Writer> writers = createWriterList();
         List<Writer> resultList = new ArrayList<>();
         for (int i = 0; i < writers.size(); i++) {
-            if (articleName.equals(writers.get(i).getArticle().getName())){
-                resultList.add(writers.get(i));
+            for (int j = 0; j < writers.get(i).getArticles().size(); j++) {
+                if (articleName.equals(writers.get(i).getArticles().get(j).getName())){
+                    resultList.add(writers.get(i));
+                    break;
+                }
             }
         }
         return resultList;
     }
 
-    public Article getArticles(String writerName){
-        Article result = null;
+    public List<Article> getArticles(String writerName){
+        List<Article> articleList = new ArrayList<>();
         List<Writer> writers = new ArrayList<>();
         writers = createWriterList();
         for (Writer writer : writers) {
             if (writerName.equals(writer.getName())){
-                result = writer.getArticle();
+                articleList = writer.getArticles();
+                break;
             }
         }
-        return result;
+        return articleList;
     }
 
     public List<Article>createArticleList(){
@@ -92,7 +97,9 @@ public class Library {
         StringBuilder sb = new StringBuilder();
         List<Writer> writers = createWriterList();
         for (Writer writer : writers) {
-            sb.append("Writer: " + writer.getName() + ", Article: " + writer.getArticle().getName() + " *** ");
+            sb.append("Writer: " + writer.getName() + ", Articles: ");
+            writer.getArticles().forEach(article -> sb.append(article.getName() + ", "));
+            sb.append(" *** ");
         }
         return sb.toString();
     }
@@ -109,11 +116,18 @@ public class Library {
     public String generateResult(String userInput){
         StringBuilder sb = new StringBuilder();
         if (isArticle(userInput)){
-            getWriters(userInput).forEach(writer->sb.append("Writer: " + writer.getName() + ", Article: " + writer.getArticle().getName() + " *** "));
+            for (Writer writer : getWriters(userInput)) {
+                sb.append("Writer: " + writer.getName() + ", Articles: ");
+                writer.getArticles().forEach(article -> sb.append(article.getName() + ", "));
+                sb.append(" *** ");
+            }
             return sb.toString();
         } else if (isWriter(userInput)){
-            System.out.println(getArticles(userInput).getName());
-            return "Article: " + getArticles(userInput).getName() + ", Year: " + getArticles(userInput).getProductionYear() + " *** ";
+            sb.append("Article: ");
+            for (Article arti : getArticles(userInput)) {
+                sb.append(arti.getName() + ", ");
+            }
+            return sb.toString();
         } else {
             return "Your input is incorrect";
         }
