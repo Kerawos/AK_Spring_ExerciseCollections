@@ -23,6 +23,7 @@ public class MarketController {
         model.addAttribute("availableList", market.showAllItems());
         market.addItem(market.parseEnum(userInput2.getInputKey()), market.parseInt(userInput2.getInputValue()));
         model.addAttribute("shopList", market.showCurrentList());
+        model.addAttribute("totalCost", market.calculatePrice());
         return "market";
     }
 }

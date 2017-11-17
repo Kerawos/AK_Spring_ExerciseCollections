@@ -30,13 +30,16 @@ public class MarketTest {
         actual.put(Market.Item.TOMATO, 3);
         market.addItem(Market.Item.TOMATO, 3);
         market.addItem(Market.Item.APPLE, 5);
+        assertEquals(43, market.calculatePrice());
         comparatorHashMap(actual, Market.shopList);
         market.addItem(Market.Item.APPLE, 2);
         market.addItem(Market.Item.APPLE, -1);
         market.addItem(Market.Item.APPLE, -1);
+        assertEquals(43, market.calculatePrice());
         comparatorHashMap(actual, Market.shopList);
         actual.put(Market.Item.BREAD, -4);
         market.addItem(Market.Item.BREAD, -4);
+        assertEquals(23, market.calculatePrice());
         comparatorHashMap(actual, Market.shopList);
     }
 

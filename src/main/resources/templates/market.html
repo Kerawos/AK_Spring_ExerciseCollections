@@ -18,6 +18,7 @@
     <i>
         Your current shop list
         <p th:if="${shopList}!=null" th:text="${shopList}"></p><br>
+        Total cost = $ <p th:if="${totalCost}!=null" th:text="${totalCost}"> </p><br>
     </i>
 </body>
 </html>
