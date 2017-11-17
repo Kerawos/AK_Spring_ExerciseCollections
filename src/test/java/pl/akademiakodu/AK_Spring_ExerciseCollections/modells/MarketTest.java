@@ -40,6 +40,23 @@ public class MarketTest {
         comparatorHashMap(actual, Market.shopList);
     }
 
+    @Test public void testExc(){
+        String test = "Onion 54";
+        try {
+            market.parseInt(test);
+            fail("Exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Cannot parse " + test + " to integer..");
+        }
+
+        try{
+            market.parseEnum(test);
+            fail("Exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "We do not have item: " + test + " in our item list..");
+        }
+    }
+
     private void comparatorHashMap(HashMap<Enum, Integer> actual, HashMap<Enum, Integer> expected){
         int c1 = 0;
         for (Map.Entry<Enum, Integer> elementActual : actual.entrySet()){

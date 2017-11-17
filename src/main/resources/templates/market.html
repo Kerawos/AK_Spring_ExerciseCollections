@@ -5,21 +5,19 @@
     <title>Market</title>
 </head>
 <body bgcolor="#99CC66">
-
-<!--<img src="img/simpleCalculatorNavigation.png" style="max-width:100%;" >-->
-<!--<hr>-->
-<p th:if="${writers}!=null" th:text="${writers}"></p><br>
-<p th:if="${articles}!=null" th:text="${articles}"></p><br>
-<hr>
-<form method="post" th:action="@{/lib}" th:object="${userInputKey}">
-    <input type="text" th:field="*{input}"><br>
-</form>
-<form method="post" th:action="@{/lib}" th:object="${userInputValue}">
-    <input type="text" th:field="*{input}"><br>
-    <input type="submit" class="button" value="Add"><br>
-</form>
-<hr>
-<p th:if="${shopList}!=null" th:text="${shopList}"></p><br>
-
+    <!--<img src="img/simpleCalculatorNavigation.png" style="max-width:100%;" >-->
+    <!--<hr>-->
+    <p th:if="${availableList}!=null" th:text="${availableList}"></p><br>
+    <hr>
+    <form method="post" th:action="@{/mar}" th:object="${userInput2}">
+        <input type="text" th:field="*{inputKey}"> <-Enter Item name you wanna add to your shop list<br>
+        <input type="text" th:field="*{inputValue}"> <- Enter quantity of this item <br>
+        <input type="submit" class="button" value="Add item to list"><br>
+    </form>
+    <hr>
+    <i>
+        Your current shop list
+        <p th:if="${shopList}!=null" th:text="${shopList}"></p><br>
+    </i>
 </body>
 </html>

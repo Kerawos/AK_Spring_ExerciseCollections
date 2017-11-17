@@ -1,6 +1,8 @@
 package pl.akademiakodu.AK_Spring_ExerciseCollections.modells;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Market {
@@ -26,7 +28,7 @@ public class Market {
         }
     }
 
-    public String showShopList(){
+    public String showCurrentList(){
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Enum, Integer> element : shopList.entrySet()){
             sb.append("Item: " + element.getKey() + " = " + element.getValue() + "pcs; *** ");
@@ -40,6 +42,41 @@ public class Market {
             sum+=element.getValue() * element.getKey().toString().length();
         }
         return sum;
+    }
+
+    public int parseInt(String s){
+        int result = 0;
+        try {
+            result = Integer.parseInt(s);
+        } catch (IllegalArgumentException e){
+            throw new IllegalArgumentException("Cannot parse " + s + " to integer..");
+        }
+        return result;
+    }
+
+    public Item parseEnum(String s){
+        Item result = null;
+        List<Item> tempList = getItems();
+        for (Item item : tempList) {
+            if (s.equals(item.toString())){
+                return item;
+            }
+        }
+        throw new IllegalArgumentException("We do not have item: " + s + " in our item list..");
+    }
+
+    public String showAllItems(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Items: ");
+        for (Item item : getItems()) {
+            sb.append(item.toString() + ", ");
+        }
+        return sb.toString();
+    }
+
+    public List<Item> getItems(){
+        return Arrays.asList(Item.POTATO, Item.ONION, Item.TOMATO, Item.CUCUMBER, Item.GARLIC,
+                Item.PEPER, Item.APPLE, Item.BREAD);
     }
 
 }
