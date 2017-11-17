@@ -1,4 +1,4 @@
-package pl.akademiakodu.AK_Spring_ExerciseCollections.modells.entities;
+package pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.modells.entities;
 
 public class UserInput {
     private String input;

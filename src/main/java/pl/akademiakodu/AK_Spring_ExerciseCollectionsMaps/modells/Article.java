@@ -1,4 +1,4 @@
-package pl.akademiakodu.AK_Spring_ExerciseCollections.modells;
+package pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.modells;
 
 public class Article {
 

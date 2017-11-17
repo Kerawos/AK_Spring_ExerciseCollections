@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>pl.akademiakodu</groupId>
-	<artifactId>AK_Spring_ExerciseCollections</artifactId>
+	<artifactId>AK_Spring_ExerciseCollectionsMaps</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>AK_Spring_ExerciseCollections</name>
+	<name>AK_Spring_ExerciseCollectionsMaps</name>
 	<description>For training</description>
 
 	<parent>

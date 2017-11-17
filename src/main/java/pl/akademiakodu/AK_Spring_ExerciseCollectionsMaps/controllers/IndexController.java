@@ -1,4 +1,4 @@
-package pl.akademiakodu.AK_Spring_ExerciseCollections.controllers;
+package pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

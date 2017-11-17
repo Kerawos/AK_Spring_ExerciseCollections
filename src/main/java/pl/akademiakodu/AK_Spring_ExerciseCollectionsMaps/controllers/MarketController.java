@@ -1,13 +1,12 @@
-package pl.akademiakodu.AK_Spring_ExerciseCollections.controllers;
+package pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.akademiakodu.AK_Spring_ExerciseCollections.modells.Market;
-import pl.akademiakodu.AK_Spring_ExerciseCollections.modells.entities.UserInput;
-import pl.akademiakodu.AK_Spring_ExerciseCollections.modells.entities.UserInput2;
+import pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.modells.Market;
+import pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.modells.entities.UserInput2;
 
 @Controller
 public class MarketController {

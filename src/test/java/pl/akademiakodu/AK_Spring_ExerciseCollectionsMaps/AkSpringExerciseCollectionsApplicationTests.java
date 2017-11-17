@@ -1,4 +1,4 @@
-package pl.akademiakodu.AK_Spring_ExerciseCollections;
+package pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
