@@ -1,4 +1,4 @@
-package pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.modells;
+package pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.modells.services;
 
 import java.util.Arrays;
 import java.util.HashMap;
