@@ -1,19 +1,39 @@
 package pl.akademiakodu.AK_Spring_ExerciseCollectionsMaps.modells.services;
 
+/**
+ * Imports section
+ */
+import org.springframework.stereotype.Service;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Responsible for market exercise, calculations connecting with market management
+ */
+@Service
 public class Market {
 
+    /**
+     * Declaration variables
+     */
     public enum Item {POTATO, ONION, TOMATO, CUCUMBER, GARLIC, PEPER, APPLE, BREAD}
     public static HashMap<Enum, Integer> shopList;
 
+    /**
+     * With constructor initialization our shoplist
+     */
     public Market() {
         shopList = new HashMap<>();
     }
 
+    /**
+     * Method responsible for adding given item and their quantity to defined shop list (static here)
+     * @param item
+     * @param qty
+     */
     public void addItem(Item item, int qty){
         boolean isContain = false;
         for (Map.Entry<Enum, Integer> element : shopList.entrySet()){
@@ -28,6 +48,10 @@ public class Market {
         }
     }
 
+    /**
+     * Method generating string containing all items with their qty from our shop list
+     * @return
+     */
     public String showCurrentList(){
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Enum, Integer> element : shopList.entrySet()){
@@ -36,6 +60,10 @@ public class Market {
         return sb.toString();
     }
 
+    /**
+     * Method responsible for calculation total price of our shop list
+     * @return total shop list price
+     */
     public int calculatePrice(){
         int sum = 0;
         for(Map.Entry<Enum, Integer> element : shopList.entrySet()){
@@ -44,6 +72,11 @@ public class Market {
         return sum;
     }
 
+    /**
+     * Method responsible for parsing given string to integer if possible
+     * @param s string
+     * @return integer
+     */
     public int parseInt(String s){
         int result = 0;
         try {
@@ -54,6 +87,11 @@ public class Market {
         return result;
     }
 
+    /**
+     * Method responsible for parsing given string to enum if possible
+     * @param s string
+     * @return enum
+     */
     public Item parseEnum(String s){
         Item result = null;
         List<Item> tempList = getItems();
@@ -65,6 +103,10 @@ public class Market {
         throw new IllegalArgumentException("We do not have item: " + s + " in our item list..");
     }
 
+    /**
+     * method responsible to store every item to string
+     * @return string containing all current available items in market
+     */
     public String showAllItems(){
         StringBuilder sb = new StringBuilder();
         sb.append("Items: ");
@@ -74,6 +116,9 @@ public class Market {
         return sb.toString();
     }
 
+    /**
+     * Get list of available items
+     */
     public List<Item> getItems(){
         return Arrays.asList(Item.POTATO, Item.ONION, Item.TOMATO, Item.CUCUMBER, Item.GARLIC,
                 Item.PEPER, Item.APPLE, Item.BREAD);
